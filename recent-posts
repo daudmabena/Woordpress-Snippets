@@ -1,0 +1,15 @@
+<snippet>[php]
+<div id="wpr-recent-posts">
+<?php $postslist = get_posts(‘numberposts=10&order=DESC’); foreach ($postslist as $post) : setup_postdata($post); ?>
+
+<a href="<?php the_permalink(); ?>"><img src="<?php echo bloginfo(‘template_url’); ?>/scripts/timthumb.php?src=/<?php
+$values = get_post_custom_values("Image"); echo $values[0]; ?>&w=300&h=275&zc=1&q=100"
+alt="<?php the_title(); ?>" class="related-thumb" width="40px" height="40px" /></a>
+
+<p><a title="Post: <?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?> &raquo;</a></p>
+
+<p><?php the_time(‘F j, Y’) ?> : <?php comments_number(‘0 comments’,’1 comment’,’% comments’); ?></p>
+
+<?php endforeach; ?>
+</div><!– End Recent Posts –>
+[/php]</snippet>
